@@ -44,6 +44,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -79,6 +80,7 @@ Vagrant.configure("2") do |config|
      https://download.docker.com/linux/centos/docker-ce.repo
   #E instalamos la ultima version de Docker CE:
 	 yum install -y docker-ce
+	 sudo usermod -aG docker vagrant
   #Instalamos Docker Compose para poder tener en funcionamiento varios contenedores y que interactuen entre ellos:
 	 curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 	 chmod +x /usr/local/bin/docker-compose
@@ -87,8 +89,8 @@ Vagrant.configure("2") do |config|
 	 pip install docker-compose
 	 yum upgrade python*
   #Levantamos el servicio de docker:
-     systemctl enable docker.service
-	 systemctl start docker.service
+  sudo systemctl enable docker.service
+  sudo systemctl start docker.service
   #Instalamos VIM:
      yum install -y vim
   #Instalamos NRPE:
@@ -97,8 +99,8 @@ Vagrant.configure("2") do |config|
 	 yum install -y nrpe nagios-plugins-all
 	 #vim /etc/nagios/nrpe.cfg
   #Levantamos el servicio de NRPE:
-	 systemctl start nrpe
-	 systemctl enable nrpe
+  sudo systemctl start nrpe
+  sudo systemctl enable nrpe
  
   
   SHELL
