@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
   #Los siguientes comandos son para que la maquina se actualice:
       apt-get -y update
 	  apt-get -y upgrade
-  #Instalamos docker de forma automatica // para permitir usar el repositorio oficial de docker sobre https se harán los siguientes comandos:
+  #Instalamos docker para permitir usar el repositorio oficial de docker sobre https se harán los siguientes comandos:
       apt-get -y install \
 	  apt-transport-https \
 	  ca-certificates \
