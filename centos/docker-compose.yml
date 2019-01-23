@@ -29,6 +29,6 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: proyecto
-      MYSQL_USER: fermin
-      MYSQL_PASSWORD: fermin
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
